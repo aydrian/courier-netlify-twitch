@@ -1,0 +1,12 @@
+{
+  "name": "courier-netlify-twitch",
+  "version": "0.1.0",
+  "description": "Netlify function to accept Twitch EventSub webhooks and send notifications using Courier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aydrian Howard <aydrian@gmail.com> (https://itsaydrian.com)",
+  "license": "ISC"
+}

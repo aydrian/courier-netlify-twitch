@@ -1,0 +1,5 @@
+[build]
+  publish = "publish"
+
+[template.environment]
+  COURIER_AUTH_TOKEN = "Courier auth token (required)"
