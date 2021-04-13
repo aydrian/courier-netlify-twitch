@@ -1,5 +1,14 @@
 [build]
   publish = "publish"
 
+[[redirects]]
+  from = "/webhooks/twitch"
+  to = "/.netlify/functions/twitch"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+
 [template.environment]
   COURIER_AUTH_TOKEN = "Courier auth token (required)"
+  TWITCH_SIGNING_SECRET = "Twitch Signing Secret (required)"
