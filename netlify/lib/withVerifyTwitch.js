@@ -8,17 +8,17 @@ const withVerifyTwitch = (handler) => {
     const messageSignature = event.headers["twitch-eventsub-message-signature"];
     const time = Math.floor(new Date().getTime() / 1000);
 
+    if (!twitchSigningSecret) {
+      console.log(`Twitch signing secret is empty.`);
+      return { statusCode: 422, body: "Signature verification failed." };
+    }
+
     if (Math.abs(time - timestamp) > 600) {
       // needs to be < 10 minutes
       console.log(
         `Verification Failed: timestamp > 10 minutes. Message Id: ${messageId}.`
       );
       return { statusCode: 422, body: "Ignore this request." };
-    }
-
-    if (!twitchSigningSecret) {
-      console.log(`Twitch signing secret is empty.`);
-      return { statusCode: 422, body: "Signature verification failed." };
     }
 
     const computedSignature =
