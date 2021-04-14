@@ -11,4 +11,6 @@
 
 [template.environment]
   COURIER_AUTH_TOKEN = "Courier auth token (required)"
+  TWITCH_CLIENT_ID = "Twitch Client ID (required)"
+  TWITCH_CLIENT_SECRET = "Twitch Client Secret (required)"
   TWITCH_SIGNING_SECRET = "Twitch Signing Secret (required)"

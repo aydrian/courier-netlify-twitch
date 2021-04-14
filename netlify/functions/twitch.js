@@ -1,4 +1,5 @@
 import withVerifyTwitch from "../lib/withVerifyTwitch";
+import { sendOnline } from "../lib/courier";
 
 async function twitchHandler(event, context) {
   if (event.httpMethod !== "POST") {
@@ -26,6 +27,17 @@ async function twitchHandler(event, context) {
       `Receiving ${type} request for ${event.broadcaster_user_name}: `,
       event
     );
+
+    if (type === "stream.online") {
+      try {
+        await sendOnline(event);
+      } catch (ex) {
+        console.log(
+          `An error occurred sending the Online notification for ${event.broadcaster_user_name}: `,
+          ex
+        );
+      }
+    }
   }
 
   return {
